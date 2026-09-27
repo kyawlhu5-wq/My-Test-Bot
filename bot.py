@@ -17,7 +17,7 @@ app = Client("video_downloader_bot", api_id=API_ID, api_hash=API_HASH, bot_token
 
 @app.on_message(filters.command("start"))
 async def start_command(client, message: Message):
-    await message.reply_text("ကျွန်တော့နာမည် အောင်အောင်ဦး ပါ! ဗီဒီယိုလင့်ခ် ပို့ပေးပါ၊ ဒေါင်းလုဒ်လုပ်ပေးပါမယ်။")
+    await message.reply_text("ကျွန်တော့်နာမည် 🙀အောင်အောင်ဦး🙀ပါ! ဗီဒီယိုလင့်ခ် ပို့ပေးပါ၊ 😻ဒေါင်းလုဒ်လုပ်ပေးပါမယ်။😻")
 
 @app.on_message(filters.text & ~filters.command("start"))
 async def download_video(client, message: Message):
@@ -25,10 +25,10 @@ async def download_video(client, message: Message):
     
     # Link Verification
     if not (url.startswith("http://") or url.startswith("https://")):
-        await message.reply_text("❌ ဗီဒီယိုလင့်ခ် သာ ပို့ပေးပါ။")
+        await message.reply_text("❌ 😼မဆိုင်တာတွေ မပို့နဲ့လီးပဲနော်။")
         return
 
-    status_msg = await message.reply_text("⏳ ဗီဒီယိုကို ဒေါင်းလုဒ်လုပ်နေပါပြီ...")
+    status_msg = await message.reply_text("⏳ ဗီဒီယိုကို ဒေါင်းလုဒ်လုပ်နေပါပြီ.. မင်းသိဖို့ ပြောတာနော်")
     
     ydl_opts = {
         'outtmpl': f'{DOWNLOAD_DIR}/%(id)s.%(ext)s',
@@ -43,11 +43,11 @@ async def download_video(client, message: Message):
             info = ydl.extract_info(url, download=True)
             file_path = ydl.prepare_filename(info)
 
-        await status_msg.edit_text("📤 Telegram သို့ တင်ပေးနေပါပြီ...")
+        await status_msg.edit_text("📤 Telegram ဆီသို့ Video တင်ပေးနေပါပြီ။စောင့်ချင်စောင့်_ မစောင့်ချင်နေ....")
         await message.reply_video(video=file_path, caption=info.get('title', 'Video'))
         await status_msg.delete()
     except Exception as e:
-        await status_msg.edit_text(f"❌ ဒေါင်းလုဒ်ဆွဲရာတွင် အမှားအယွင်းရှိပါသည်: {str(e)[:100]}")
+        await status_msg.edit_text(f"❌ ဒေါင်းလုဒ်ဆွဲရာတွင်  Error(အာရာ) ဖြစ်သွားပီ-: {str(e)[:100]}")
     finally:
         # Cleanup downloads folder
         if file_path and os.path.exists(file_path):
