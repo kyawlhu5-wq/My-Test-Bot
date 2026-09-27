@@ -5,7 +5,7 @@ import yt_dlp
 
 API_ID = 31526501
 API_HASH = "cf2792e0bcbdb620a31dd65a43f88c8a"
-BOT_TOKEN = "8419613072:AAF5bnkg3ld__mY0uHiYA1-wYNeE07UcIk4"
+BOT_TOKEN = "8419613072:AAG0Bgn881ttJHElUPR44UbpG-uFyX646Ds"
 
 # downloads folder မရှိသေးပါက အလိုအလျောက် ဆောက်ပေးရန်
 DOWNLOAD_DIR = "downloads"
