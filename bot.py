@@ -12,7 +12,7 @@ app = Client("video_downloader_bot", api_id=API_ID, api_hash=API_HASH, bot_token
 
 @app.on_message(filters.command("start"))
 async def start_command(client, message: Message):
-    await message.reply_text("ကျွန်တော့နာမည် အောင်အောင်ဦး ပါ! ဗီဒီယိုလင့်ခ် ပို့ပေးပါ၊ ဒေါင်းလုဒ်လုပ်ပေးပါမယ်။")
+    await message.reply_text("ကျွန်တော့နာမည် အောင်အောင်ဦး ပါ!/ ဗီဒီယိုလင့်ခ် ပို့ပေးပါ၊ ဒေါင်းလုဒ်လုပ်ပေးပါမယ်။")
 
 @app.on_message(filters.text & ~filters.command("start"))
 async def download_video(client, message: Message):
